@@ -8,18 +8,18 @@ import java.util.List;
 
 @Entity
 @Getter
-public class UserPaymentInformation {
+public class CustomerPaymentInformation {
     @Id
     @GeneratedValue
-    private long userPaymentInformationNumber;
+    private long customerPaymentInformationNumber;
 
     private String cardNumber;
 
     private String cardDetail;
 
     @ManyToOne
-    private User user;
+    private Customer customer;
 
-    @OneToMany(mappedBy = "userPaymentInformation")
+    @OneToMany(mappedBy = "customerPaymentInformation")
     private List<Reservation> reservations = new ArrayList<>();
 }

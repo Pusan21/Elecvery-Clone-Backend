@@ -12,10 +12,10 @@ import java.util.List;
 
 @Entity
 @Getter
-public class User {
+public class Customer {
     @Id
     @GeneratedValue
-    private long userNumber;
+    private long customerNumber;
 
     private String loginId;
 
@@ -31,9 +31,9 @@ public class User {
 
     private ZonedDateTime lastLoginDateTime;
 
-    @OneToMany(mappedBy = "user")
-    private List<UserPaymentInformation> userPaymentInformations = new ArrayList<>();
+    @OneToMany(mappedBy = "customer")
+    private List<CustomerPaymentInformation> customerPaymentInformations = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "customer")
     private List<Reservation> reservations = new ArrayList<>();
 }

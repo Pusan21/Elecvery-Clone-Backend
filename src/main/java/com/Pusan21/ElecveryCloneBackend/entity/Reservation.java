@@ -25,8 +25,8 @@ public class Reservation {
     private StationSlot stationSlot;
 
     @ManyToOne
-    private User user;
+    private Customer customer;
 
     @ManyToOne
-    private UserPaymentInformation userPaymentInformation;
+    private CustomerPaymentInformation customerPaymentInformation;
 }
