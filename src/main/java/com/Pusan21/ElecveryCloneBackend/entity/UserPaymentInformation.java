@@ -15,7 +15,7 @@ public class UserPaymentInformation {
 
     private String cardNumber;
 
-    private String cardDetails;
+    private String cardDetail;
 
     @ManyToOne
     private User user;
