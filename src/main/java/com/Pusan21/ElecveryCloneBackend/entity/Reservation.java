@@ -11,22 +11,23 @@ import java.time.ZonedDateTime;
 @Entity
 @Getter
 public class Reservation {
-    @Id
-    @GeneratedValue
-    private long reservationNumber;
 
-    private ZonedDateTime startDateTime;
+  @Id
+  @GeneratedValue
+  private long reservationNumber;
 
-    private ZonedDateTime endDateTime;
+  private ZonedDateTime startDateTime;
 
-    private String chargeOption;
+  private ZonedDateTime endDateTime;
 
-    @ManyToOne
-    private StationSlot stationSlot;
+  private String chargeOption;
 
-    @ManyToOne
-    private Customer customer;
+  @ManyToOne
+  private StationSlot stationSlot;
 
-    @ManyToOne
-    private CustomerPaymentInformation customerPaymentInformation;
+  @ManyToOne
+  private Customer customer;
+
+  @ManyToOne
+  private CustomerPaymentInformation customerPaymentInformation;
 }

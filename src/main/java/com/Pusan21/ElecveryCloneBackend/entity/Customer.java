@@ -13,27 +13,28 @@ import java.util.List;
 @Entity
 @Getter
 public class Customer {
-    @Id
-    @GeneratedValue
-    private long customerNumber;
 
-    private String loginId;
+  @Id
+  @GeneratedValue
+  private long customerNumber;
 
-    private String loginPassword;
+  private String loginId;
 
-    private String email;
+  private String loginPassword;
 
-    private String nickname;
+  private String email;
 
-    private String role;
+  private String nickname;
 
-    private ZonedDateTime createDateTime;
+  private String role;
 
-    private ZonedDateTime lastLoginDateTime;
+  private ZonedDateTime createDateTime;
 
-    @OneToMany(mappedBy = "customer")
-    private List<CustomerPaymentInformation> customerPaymentInformations = new ArrayList<>();
+  private ZonedDateTime lastLoginDateTime;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Reservation> reservations = new ArrayList<>();
+  @OneToMany(mappedBy = "customer")
+  private List<CustomerPaymentInformation> customerPaymentInformations = new ArrayList<>();
+
+  @OneToMany(mappedBy = "customer")
+  private List<Reservation> reservations = new ArrayList<>();
 }
