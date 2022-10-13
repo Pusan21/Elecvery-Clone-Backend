@@ -32,4 +32,10 @@ public class Station {
   @OneToMany(mappedBy = "station")
   private List<StationSlot> stationSlots = new ArrayList<>();
 
+  @OneToMany(mappedBy = "station")
+  private List<Manager> managers = new ArrayList<>();
+
+  public boolean getIsActive() {
+    return isActive;
+  }
 }
