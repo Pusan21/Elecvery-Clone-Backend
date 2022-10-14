@@ -10,21 +10,22 @@ import java.util.List;
 @Entity
 @Getter
 public class StationSlot {
-    @Id
-    @GeneratedValue
-    private long stationSlotNumber;
 
-    private LocalTime openTime;
+  @Id
+  @GeneratedValue
+  private long stationSlotNumber;
 
-    private LocalTime closeTime;
+  private LocalTime openTime;
 
-    private String availableChargeOption;
+  private LocalTime closeTime;
 
-    private boolean isActive;
+  private String availableChargeOption;
 
-    @ManyToOne
-    private Station station;
+  private boolean isActive;
 
-    @OneToMany(mappedBy = "stationSlot")
-    private List<Reservation> reservations = new ArrayList<>();
+  @ManyToOne
+  private Station station;
+
+  @OneToMany(mappedBy = "stationSlot")
+  private List<Reservation> reservations = new ArrayList<>();
 }

@@ -9,17 +9,18 @@ import java.util.List;
 @Entity
 @Getter
 public class CustomerPaymentInformation {
-    @Id
-    @GeneratedValue
-    private long customerPaymentInformationNumber;
 
-    private String cardNumber;
+  @Id
+  @GeneratedValue
+  private long customerPaymentInformationNumber;
 
-    private String cardDetail;
+  private String cardNumber;
 
-    @ManyToOne
-    private Customer customer;
+  private String cardDetail;
 
-    @OneToMany(mappedBy = "customerPaymentInformation")
-    private List<Reservation> reservations = new ArrayList<>();
+  @ManyToOne
+  private Customer customer;
+
+  @OneToMany(mappedBy = "customerPaymentInformation")
+  private List<Reservation> reservations = new ArrayList<>();
 }

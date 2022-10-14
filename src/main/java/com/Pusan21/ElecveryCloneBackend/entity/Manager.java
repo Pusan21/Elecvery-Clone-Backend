@@ -11,24 +11,25 @@ import java.time.ZonedDateTime;
 @Entity
 @Getter
 public class Manager {
-    @Id
-    @GeneratedValue
-    private long managerNumber;
 
-    private String loginId;
+  @Id
+  @GeneratedValue
+  private long managerNumber;
 
-    private String loginPassword;
+  private String loginId;
 
-    private String email;
+  private String loginPassword;
 
-    private String nickname;
+  private String email;
 
-    private String role;
+  private String nickname;
 
-    private ZonedDateTime createDateTime;
+  private String role;
 
-    private ZonedDateTime lastLoginDateTime;
+  private ZonedDateTime createDateTime;
 
-    @ManyToOne
-    private Station station;
+  private ZonedDateTime lastLoginDateTime;
+
+  @ManyToOne
+  private Station station;
 }

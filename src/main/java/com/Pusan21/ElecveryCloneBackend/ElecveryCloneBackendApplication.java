@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ElecveryCloneBackendApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ElecveryCloneBackendApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(ElecveryCloneBackendApplication.class, args);
+  }
 
 }
