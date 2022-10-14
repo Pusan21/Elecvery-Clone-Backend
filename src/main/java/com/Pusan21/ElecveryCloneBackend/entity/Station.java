@@ -26,6 +26,5 @@ public class Station {
     private List<StationSlot> stationSlots = new ArrayList<>();
 
     @OneToMany(mappedBy = "station")
-    private List<Manager> managers = new ArrayList<>();
-
+    private List<Member_Station> members = new ArrayList<>();
 }

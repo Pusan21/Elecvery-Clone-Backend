@@ -6,27 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.time.ZonedDateTime;
 
 @Entity
 @Getter
-public class Reservation {
+public class Member_Station {
     @Id
     @GeneratedValue
-    private long reservationNumber;
-
-    private ZonedDateTime startDateTime;
-
-    private ZonedDateTime endDateTime;
-
-    private String chargeOption;
-
-    @ManyToOne
-    private StationSlot stationSlot;
+    private long member_stationNumber;
 
     @ManyToOne
     private Member member;
 
     @ManyToOne
-    private PaymentInformation paymentInformation;
+    private Station station;
 }

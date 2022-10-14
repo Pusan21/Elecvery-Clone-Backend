@@ -2,20 +2,17 @@ package com.Pusan21.ElecveryCloneBackend.entity;
 
 import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
-public class Customer {
+public class Member {
     @Id
     @GeneratedValue
-    private long customerNumber;
+    private long memberNumber;
 
     private String loginId;
 
@@ -31,9 +28,12 @@ public class Customer {
 
     private ZonedDateTime lastLoginDateTime;
 
-    @OneToMany(mappedBy = "customer")
-    private List<CustomerPaymentInformation> customerPaymentInformations = new ArrayList<>();
+    @OneToMany(mappedBy = "member")
+    private List<PaymentInformation> paymentInformations = new ArrayList<>();
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "member")
     private List<Reservation> reservations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<Member_Station> stations = new ArrayList<>();
 }
