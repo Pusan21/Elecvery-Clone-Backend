@@ -10,18 +10,19 @@ import javax.persistence.OneToOne;
 @Entity
 @Getter
 public class StationLocation {
-    @Id
-    @GeneratedValue
-    private long stationLocationNumber;
 
-    private String address;
+  @Id
+  @GeneratedValue
+  private long stationLocationNumber;
 
-    private String detailedAddress;
+  private String address;
 
-    private double latitude;
+  private String detailedAddress;
 
-    private double longitude;
+  private double latitude;
 
-    @OneToOne
-    private Station station;
+  private double longitude;
+
+  @OneToOne
+  private Station station;
 }

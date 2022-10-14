@@ -9,25 +9,32 @@ import java.util.List;
 
 @Entity
 @Getter
+<<<<<<< HEAD:src/main/java/com/Pusan21/ElecveryCloneBackend/entity/Member.java
 public class Member {
     @Id
     @GeneratedValue
     private long memberNumber;
+=======
+public class Customer {
+>>>>>>> 7ab37d49808cbbffa490bd14d90907014bf8ba2a:src/main/java/com/Pusan21/ElecveryCloneBackend/entity/Customer.java
 
-    private String loginId;
+  @Id
+  @GeneratedValue
+  private long customerNumber;
 
-    private String loginPassword;
+  private String loginId;
 
-    private String email;
+  private String loginPassword;
 
-    private String nickname;
+  private String email;
 
-    private String role;
+  private String nickname;
 
-    private ZonedDateTime createDateTime;
+  private String role;
 
-    private ZonedDateTime lastLoginDateTime;
+  private ZonedDateTime createDateTime;
 
+<<<<<<< HEAD:src/main/java/com/Pusan21/ElecveryCloneBackend/entity/Member.java
     @OneToMany(mappedBy = "member")
     private List<PaymentInformation> paymentInformations = new ArrayList<>();
 
@@ -36,4 +43,13 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Member_Station> stations = new ArrayList<>();
+=======
+  private ZonedDateTime lastLoginDateTime;
+
+  @OneToMany(mappedBy = "customer")
+  private List<CustomerPaymentInformation> customerPaymentInformations = new ArrayList<>();
+
+  @OneToMany(mappedBy = "customer")
+  private List<Reservation> reservations = new ArrayList<>();
+>>>>>>> 7ab37d49808cbbffa490bd14d90907014bf8ba2a:src/main/java/com/Pusan21/ElecveryCloneBackend/entity/Customer.java
 }
