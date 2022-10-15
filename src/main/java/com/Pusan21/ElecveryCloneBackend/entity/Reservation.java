@@ -22,20 +22,13 @@ public class Reservation {
 
   private String chargeOption;
 
-<<<<<<< HEAD
-    @ManyToOne
-    private Member member;
-
-    @ManyToOne
-    private PaymentInformation paymentInformation;
-=======
   @ManyToOne
   private StationSlot stationSlot;
 
   @ManyToOne
-  private Customer customer;
+  private Member member;
 
   @ManyToOne
-  private CustomerPaymentInformation customerPaymentInformation;
->>>>>>> 7ab37d49808cbbffa490bd14d90907014bf8ba2a
+  private PaymentInformation paymentInformation;
+
 }

@@ -29,18 +29,12 @@ public class Station {
   @OneToOne(mappedBy = "station")
   private StationLocation stationLocation;
 
-<<<<<<< HEAD
-    @OneToMany(mappedBy = "station")
-    private List<Member_Station> members = new ArrayList<>();
-=======
   @OneToMany(mappedBy = "station")
   private List<StationSlot> stationSlots = new ArrayList<>();
-
   @OneToMany(mappedBy = "station")
-  private List<Manager> managers = new ArrayList<>();
+  private List<Member_Station> members = new ArrayList<>();
 
   public boolean getIsActive() {
     return isActive;
   }
->>>>>>> 7ab37d49808cbbffa490bd14d90907014bf8ba2a
 }
