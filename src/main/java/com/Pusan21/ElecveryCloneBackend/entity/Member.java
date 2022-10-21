@@ -1,15 +1,27 @@
 package com.Pusan21.ElecveryCloneBackend.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Member {
+  public Member(String loginId, String loginPassword, String email, String nickname, String role, ZonedDateTime createDateTime, ZonedDateTime lastLoginDateTime) {
+    this.loginId = loginId;
+    this.loginPassword = loginPassword;
+    this.email = email;
+    this.nickname = nickname;
+    this.role = role;
+    this.createDateTime = createDateTime;
+    this.lastLoginDateTime = lastLoginDateTime;
+  }
 
   @Id
   @GeneratedValue
