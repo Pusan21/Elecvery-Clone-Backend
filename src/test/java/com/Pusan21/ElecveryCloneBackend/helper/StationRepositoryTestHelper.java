@@ -1,6 +1,7 @@
-package com.Pusan21.ElecveryCloneBackend.repository;
+package com.Pusan21.ElecveryCloneBackend.helper;
 
 import com.Pusan21.ElecveryCloneBackend.entity.Station;
+import com.Pusan21.ElecveryCloneBackend.repository.StationRepository;
 import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
