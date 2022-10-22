@@ -42,10 +42,10 @@ public class Member {
   private ZonedDateTime lastLoginDateTime;
 
   @OneToMany(mappedBy = "member")
-  private List<PaymentInformation> paymentInformations = new ArrayList<>();
+  private List<Mycar> mycars = new ArrayList<>();
 
   @OneToMany(mappedBy = "member")
-  private List<Reservation> reservations = new ArrayList<>();
+  private List<PaymentInformation> paymentInformations = new ArrayList<>();
 
   @OneToMany(mappedBy = "member")
   private List<Member_Station> stations = new ArrayList<>();
