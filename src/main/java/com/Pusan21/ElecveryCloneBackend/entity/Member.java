@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import org.springframework.data.annotation.CreatedDate;
 
 @Entity
 @Getter
@@ -23,20 +23,23 @@ public class Member {
     this.lastLoginDateTime = lastLoginDateTime;
   }
 
+  @Column(unique = true)
   @Id
   @GeneratedValue
-  private long memberNumber;
+  private long memberId;
 
   private String loginId;
 
   private String loginPassword;
 
+  @Column(unique = true)
   private String email;
 
   private String nickname;
 
   private String role;
 
+  @CreatedDate
   private ZonedDateTime createDateTime;
 
   private ZonedDateTime lastLoginDateTime;

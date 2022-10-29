@@ -9,7 +9,6 @@ import com.Pusan21.ElecveryCloneBackend.entity.Member;
 import com.Pusan21.ElecveryCloneBackend.entity.PaymentInformation;
 import com.Pusan21.ElecveryCloneBackend.helper.PaymentInformationServiceTestHelper;
 import java.util.List;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -45,7 +44,7 @@ public class PaymentServiceTest extends PaymentInformationServiceTestHelper {
 
     // when
     Long paymentInformationId = paymentInformationService
-        .addPaymentInformation(member1.getMemberNumber(), requestDto);
+        .addPaymentInformation(member1.getMemberId(), requestDto);
     em.flush();
     em.clear();
 
@@ -70,7 +69,7 @@ public class PaymentServiceTest extends PaymentInformationServiceTestHelper {
 
     // when
     UpdatePaymentInformationDto resultDto = paymentInformationService.updatePaymentInformation(
-        member1.getMemberNumber(), paymentInformation.getPaymentInformationNumber(), requestDto);
+        member1.getMemberId(), paymentInformation.getPaymentInformationNumber(), requestDto);
 
     em.flush();
     em.clear();
@@ -91,7 +90,7 @@ public class PaymentServiceTest extends PaymentInformationServiceTestHelper {
 
     // when
     Long deletePaymentInformationNumber = paymentInformationService.deletePaymentInformation(
-        member1.getMemberNumber(), paymentInformation.getPaymentInformationNumber());
+        member1.getMemberId(), paymentInformation.getPaymentInformationNumber());
     PaymentInformation findDeletedPaymentInformation = paymentInformationRepository
         .findById(deletePaymentInformationNumber).orElse(null);
 
@@ -114,7 +113,7 @@ public class PaymentServiceTest extends PaymentInformationServiceTestHelper {
 
     // when
     List<GetPaymentInformationDto> paymentInformations = paymentInformationService
-        .getPaymentInforamtions(member1.getMemberNumber());
+        .getPaymentInforamtions(member1.getMemberId());
 
     em.flush();
     em.clear();
