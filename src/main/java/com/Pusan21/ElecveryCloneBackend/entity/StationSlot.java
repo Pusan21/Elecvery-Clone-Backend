@@ -19,9 +19,7 @@ public class StationSlot {
 
   private LocalTime closeTime;
 
-  private String availableChargeOption;
-
-  private boolean isActive;
+  private long status;
 
   @ManyToOne
   private Station station;
