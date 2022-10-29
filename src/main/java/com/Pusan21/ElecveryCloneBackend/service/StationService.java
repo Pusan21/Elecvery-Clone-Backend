@@ -26,27 +26,35 @@ public class StationService {
 
     for (int i = 0; i < item.length(); i++) {
       JSONObject object = item.getJSONObject(i);
-      Station station = Station.builder()
-          .stationName(object.getString("statNm"))
-          .registrationNumber(null)
-          .useTime(object.getString("useTime"))
-          .stateUpdateDate(object.getLong("statUpdDt"))
-          .note(object.getString("note"))
-          .availableChargeOption(object.getString("chgerType"))
-          .output(object.getLong("output"))
-          .method(object.getString("method"))
-          .build();
 
-      StationLocation stationLocation = StationLocation.builder()
-          .address(object.getString("addr"))
-          .latitude(object.getDouble("lat"))
-          .longitude(object.getDouble("lng"))
-          .zcode(object.getLong("zcode"))
-          .zscode(object.getLong("zscode"))
-          .build();
+      Station station = generateStation(object);
+      StationLocation stationLocation = generateStationLocation(object);
 
       station.setStationLocation(stationLocation);
       stationRepository.save(station);
     }
+  }
+
+  private Station generateStation(JSONObject object) {
+    return Station.builder()
+        .stationName(object.getString("statNm"))
+        .registrationNumber(null)
+        .useTime(object.getString("useTime"))
+        .stateUpdateDate(object.getLong("statUpdDt"))
+        .note(object.getString("note"))
+        .availableChargeOption(object.getString("chgerType"))
+        .output(object.getLong("output"))
+        .method(object.getString("method"))
+        .build();
+  }
+
+  private StationLocation generateStationLocation(JSONObject object) {
+    return StationLocation.builder()
+        .address(object.getString("addr"))
+        .latitude(object.getDouble("lat"))
+        .longitude(object.getDouble("lng"))
+        .zcode(object.getLong("zcode"))
+        .zscode(object.getLong("zscode"))
+        .build();
   }
 }
