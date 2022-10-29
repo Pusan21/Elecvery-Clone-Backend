@@ -84,8 +84,8 @@ public class PaymentInformationRepositoryTest extends
         findPaymentInformation.getCardNumber());
     assertThat(paymentInformation.getCardDetail()).isEqualTo(
         findPaymentInformation.getCardDetail());
-    assertThat(paymentInformation.getMember().getMemberNumber()).isEqualTo(
-        findPaymentInformation.getMember().getMemberNumber());
+    assertThat(paymentInformation.getMember().getMemberId()).isEqualTo(
+        findPaymentInformation.getMember().getMemberId());
 
     assertThat(paymentInformations.size()).isEqualTo(2);
 
