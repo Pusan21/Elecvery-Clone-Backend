@@ -17,12 +17,12 @@ public class StationRepositoryTestHelper {
   @Autowired
   protected StationRepository stationRepository;
 
-  protected Station generateStation(Long stationNumber, boolean isActive, String registrationNumber,
-      String stationName) {
+  protected Station generateStation(Long stationNumber, String registrationNumber,
+      String useTime, String stationName) {
     return stationRepository.save(
         Station.builder()
             .stationNumber(stationNumber)
-            .isActive(isActive)
+            .useTime(useTime)
             .registrationNumber(registrationNumber)
             .stationName(stationName)
             .build()

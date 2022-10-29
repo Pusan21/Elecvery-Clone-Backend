@@ -15,11 +15,10 @@ public class StationRepositoryTest extends StationRepositoryTestHelper {
   @DisplayName("충전소 저장 확인")
   public void saveStation() throws NotFoundException {
     //given
-    Station station = generateStation(1L, true, "123-45-6789", "elecvery");
+    Station station = generateStation(1L, "123-45-6789", "24시간 이용 가능", "elecvery");
 
     em.flush();
     em.clear();
-
     //when
     Station findStation = stationRepository.findById(station.getStationNumber())
         .orElseThrow(NotFoundException::new);
@@ -28,16 +27,16 @@ public class StationRepositoryTest extends StationRepositoryTestHelper {
     assertThat(station.getStationNumber()).isEqualTo(findStation.getStationNumber());
     assertThat(station.getStationName()).isEqualTo(findStation.getStationName());
     assertThat(station.getRegistrationNumber()).isEqualTo(findStation.getRegistrationNumber());
-    assertThat(station.getIsActive()).isEqualTo(findStation.getIsActive());
+    assertThat(station.getUseTime()).isEqualTo(findStation.getUseTime());
   }
 
   @Test
   @DisplayName("충전소 개수 확인")
   public void getNumberOfStations() {
     //given
-    generateStation(1L, true, "123-45-6789", "elecvery1");
-    generateStation(2L, true, "123-45-9999", "elecvery2");
-    generateStation(3L, false, "123-54-6789", "elecvery3");
+    generateStation(1L, "123-45-6789", "24시간 이용가능", "elecvery1");
+    generateStation(2L, "123-45-9999", "24시간 이용가능", "elecvery2");
+    generateStation(3L, "123-54-6789", "24시간 이용가능", "elecvery3");
 
     em.flush();
     em.clear();
@@ -52,9 +51,9 @@ public class StationRepositoryTest extends StationRepositoryTestHelper {
   @DisplayName("충전소 삭제 확인")
   public void deleteStation() {
     //given
-    generateStation(1L, true, "123-45-6789", "elecvery1");
-    generateStation(2L, true, "123-45-9999", "elecvery2");
-    Station deleteThis = generateStation(3L, false, "123-54-6789", "elecvery3");
+    generateStation(1L, "123-45-6789", "24시간 이용가능", "elecvery1");
+    generateStation(2L, "123-45-9999", "24시간 이용가능", "elecvery2");
+    Station deleteThis = generateStation(3L, "123-54-6789", "24시간 이용가능", "elecvery3");
     stationRepository.delete(deleteThis);
 
     em.flush();
