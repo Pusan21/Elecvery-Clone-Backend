@@ -1,5 +1,7 @@
 package com.Pusan21.ElecveryCloneBackend.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,22 +12,14 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Getter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Member {
-  public Member(String loginId, String loginPassword, String email, String nickname, String role, ZonedDateTime createDateTime, ZonedDateTime lastLoginDateTime) {
-    this.loginId = loginId;
-    this.loginPassword = loginPassword;
-    this.email = email;
-    this.nickname = nickname;
-    this.role = role;
-    this.createDateTime = createDateTime;
-    this.lastLoginDateTime = lastLoginDateTime;
-  }
 
   @Id
   @GeneratedValue
-  private long memberNumber;
+  private Long memberNumber;
 
   private String loginId;
 
@@ -35,11 +29,12 @@ public class Member {
 
   private String nickname;
 
-  private String role;
+//  private ZonedDateTime createDateTime;
+//
+//  private ZonedDateTime lastLoginDateTime;
 
-  private ZonedDateTime createDateTime;
-
-  private ZonedDateTime lastLoginDateTime;
+  @ManyToMany(fetch = FetchType.EAGER)
+  private List<Role> roles = new ArrayList<>();
 
   @OneToMany(mappedBy = "member")
   private List<Mycar> mycars = new ArrayList<>();
