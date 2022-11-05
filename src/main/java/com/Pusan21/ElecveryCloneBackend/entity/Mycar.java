@@ -28,6 +28,13 @@ public class MyCar {
     @ManyToOne
     private Member member;
 
-    @OneToMany(mappedBy = "mycar")
+    @Builder.Default
+    @OneToMany(mappedBy = "myCar")
     private List<Reservation> reservations = new ArrayList<>();
+
+    public void updateMyCar(UpdateMyCarDto updateMyCarDto){
+        this.plateNumber = updateMyCarDto.getPlateNumber();
+        this.carType = updateMyCarDto.getCarType();
+    }
+
 }
