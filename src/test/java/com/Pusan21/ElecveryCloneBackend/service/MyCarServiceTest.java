@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 public class MyCarServiceTest extends MyCarServiceTestHelper {
-  private Member member1;
+  /*private Member member1;
   private Member member2;
 
   @Autowired
@@ -43,5 +43,5 @@ public class MyCarServiceTest extends MyCarServiceTestHelper {
 
     // then
     Assertions.assertThat(findMyCar.getMyCarNumber()).isEqualTo(myCarNumber);
-  }
+  }*/
 }
