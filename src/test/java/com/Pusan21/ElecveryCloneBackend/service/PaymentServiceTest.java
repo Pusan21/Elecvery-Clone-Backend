@@ -8,6 +8,7 @@ import com.Pusan21.ElecveryCloneBackend.dto.PaymentInformationDto.UpdatePaymentI
 import com.Pusan21.ElecveryCloneBackend.entity.Member;
 import com.Pusan21.ElecveryCloneBackend.entity.PaymentInformation;
 import com.Pusan21.ElecveryCloneBackend.helper.PaymentInformationServiceTestHelper;
+import com.Pusan21.ElecveryCloneBackend.helper.RandomMemberGenerator;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -31,8 +32,8 @@ public class PaymentServiceTest extends PaymentInformationServiceTestHelper {
    */
   @BeforeEach()
   public void setUp() {
-    member1 = memberRepository.findById(1L).orElse(null);
-    member2 = memberRepository.findById(2L).orElse(null);
+    member1 = RandomMemberGenerator.generateTo(memberRepository, "member1");
+    member2 = RandomMemberGenerator.generateTo(memberRepository, "member2");
   }
 
   @Test
