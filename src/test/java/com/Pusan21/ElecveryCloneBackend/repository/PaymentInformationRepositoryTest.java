@@ -6,10 +6,6 @@ import com.Pusan21.ElecveryCloneBackend.entity.Member;
 import com.Pusan21.ElecveryCloneBackend.entity.PaymentInformation;
 import com.Pusan21.ElecveryCloneBackend.helper.PaymentInformationRepositoryTestHelper;
 import com.Pusan21.ElecveryCloneBackend.helper.RandomMemberGenerator;
-import java.time.Year;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +22,7 @@ public class PaymentInformationRepositoryTest extends
   public void addMyPaymentInformation() {
     // given
     Member member = RandomMemberGenerator.generateTo(memberRepository, "member");
-    PaymentInformation paymentInformation = generatePaymentInformation(1L, "1234", "부산대학교학생지원카드",
+    PaymentInformation paymentInformation = generatePaymentInformation("1234", "부산대학교학생지원카드",
         member);
 
     em.flush();
@@ -47,7 +43,7 @@ public class PaymentInformationRepositoryTest extends
   public void deleteMyPaymentInformation() {
     // given
     Member member = RandomMemberGenerator.generateTo(memberRepository, "member");
-    PaymentInformation paymentInformation = generatePaymentInformation(1L, "1234", "부산대학교학생지원카드",
+    PaymentInformation paymentInformation = generatePaymentInformation("1234", "부산대학교학생지원카드",
         member);
 
     em.flush();
@@ -67,12 +63,12 @@ public class PaymentInformationRepositoryTest extends
   public void getMyPaymentInformations() {
     // given
     Member member1 = RandomMemberGenerator.generateTo(memberRepository, "member1");
-    PaymentInformation paymentInformation = generatePaymentInformation(1L, "1234", "부산대학교학생지원카드",
+    PaymentInformation paymentInformation = generatePaymentInformation("1234", "부산대학교학생지원카드",
         member1);
-    generatePaymentInformation(2L, "5678", "국민카드",
+    generatePaymentInformation("5678", "국민카드",
         member1);
     Member member2 = RandomMemberGenerator.generateTo(memberRepository, "member2");
-    generatePaymentInformation(3L, "9123", "컴퓨터공학카드",
+    generatePaymentInformation("9123", "컴퓨터공학카드",
         member2);
 
     em.flush();

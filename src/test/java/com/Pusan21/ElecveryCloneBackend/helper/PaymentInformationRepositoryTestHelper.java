@@ -22,12 +22,11 @@ public class PaymentInformationRepositoryTestHelper {
   @Autowired
   protected PaymentInformationRepository paymentInformationRepository;
 
-  protected PaymentInformation generatePaymentInformation(Long paymentInformationNumber,
+  protected PaymentInformation generatePaymentInformation(
       String cardNumber, String cardDetail,
       Member member) {
     return paymentInformationRepository.save(
         PaymentInformation.builder()
-            .paymentInformationNumber(paymentInformationNumber)
             .cardNumber(cardNumber)
             .cardDetail(cardDetail)
             .member(member)
