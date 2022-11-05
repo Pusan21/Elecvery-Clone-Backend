@@ -91,6 +91,7 @@ public class PaymentInformationRepositoryTest extends
         paymentInformation.getPaymentInformationNumber()).orElse(null);
 
     // then
+    assertThat(findPaymentInformation).isNotNull();
     assertThat(paymentInformation.getPaymentInformationNumber()).isEqualTo(
         findPaymentInformation.getPaymentInformationNumber());
   }
@@ -140,6 +141,7 @@ public class PaymentInformationRepositoryTest extends
         paymentInformation.getPaymentInformationNumber()).orElse(null);
 
     // then
+    assertThat(findPaymentInformation).isNotNull();
     assertThat(paymentInformation.getPaymentInformationNumber()).isEqualTo(
         findPaymentInformation.getPaymentInformationNumber());
     assertThat(paymentInformation.getCardNumber()).isEqualTo(
@@ -150,8 +152,7 @@ public class PaymentInformationRepositoryTest extends
         findPaymentInformation.getMember().getMemberId());
 
     assertThat(paymentInformations.size()).isEqualTo(2);
-
-    // assertThat(paymentInformation.getMember()).isEqualTo(findPaymentInformation.getMember());
-    // Member 는 동일한 값을 가진 다른 인스턴스라서 위 테스트가 깨집니다.
+    assertThat(paymentInformation.getMember().getMemberId()).isEqualTo(
+        findPaymentInformation.getMember().getMemberId());
   }
 }
