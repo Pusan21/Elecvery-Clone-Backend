@@ -29,5 +29,5 @@ public class Reservation {
   private PaymentInformation paymentInformation;
 
   @ManyToOne
-  private Mycar mycar;
+  private MyCar myCar;
 }
