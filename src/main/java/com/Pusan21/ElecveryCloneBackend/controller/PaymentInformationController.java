@@ -5,6 +5,8 @@ import com.Pusan21.ElecveryCloneBackend.dto.PaymentInformationDto.AddPaymentInfo
 import com.Pusan21.ElecveryCloneBackend.dto.PaymentInformationDto.GetPaymentInformationDto;
 import com.Pusan21.ElecveryCloneBackend.dto.PaymentInformationDto.UpdatePaymentInformationDto;
 import com.Pusan21.ElecveryCloneBackend.service.PaymentInformationService;
+import com.Pusan21.ElecveryCloneBackend.service.ResponseService;
+import com.Pusan21.ElecveryCloneBackend.util.SingleResult;
 import com.sun.istack.NotNull;
 import java.util.List;
 import javax.validation.Valid;
@@ -27,6 +29,8 @@ public class PaymentInformationController {
 
   private final PaymentInformationService paymentInformationService;
 
+  private final ResponseService responseService;
+
   @GetMapping("/members/{memberId}")
   public List<GetPaymentInformationDto> getPaymentInformations(
       @PathVariable @NotNull Long memberId
@@ -35,19 +39,21 @@ public class PaymentInformationController {
   }
 
   @DeleteMapping("/members/{memberId}/cards/{cardId}")
-  public Long deletePaymentInformation(
+  public SingleResult<Long> deletePaymentInformation(
       @PathVariable @NotNull Long memberId,
       @PathVariable @NotNull Long cardId
   ) {
-    return paymentInformationService.deletePaymentInformation(memberId, cardId);
+    return responseService.getSuccessSingleResult(
+        paymentInformationService.deletePaymentInformation(memberId, cardId));
   }
 
   @PostMapping("/members/{memberId}")
-  public Long addPaymentInformation(
+  public SingleResult<Long> addPaymentInformation(
       @PathVariable @NotNull Long memberId,
       @RequestBody @Valid AddPaymentInformationDto requestDto
   ) {
-    return paymentInformationService.addPaymentInformation(memberId, requestDto);
+    return responseService.getSuccessSingleResult(
+        paymentInformationService.addPaymentInformation(memberId, requestDto));
   }
 
   @PutMapping("/members/{memberId}/cards/{cardId}")
