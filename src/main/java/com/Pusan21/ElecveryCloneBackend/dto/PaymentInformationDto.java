@@ -3,14 +3,18 @@ package com.Pusan21.ElecveryCloneBackend.dto;
 import com.Pusan21.ElecveryCloneBackend.entity.Member;
 import com.Pusan21.ElecveryCloneBackend.entity.PaymentInformation;
 import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 public class PaymentInformationDto {
 
   @Getter
   @Setter
+  @NoArgsConstructor
+  @AllArgsConstructor
   @Builder
   public static class GetPaymentInformationDto {
 
@@ -30,6 +34,8 @@ public class PaymentInformationDto {
   @Getter
   @Setter
   @Builder
+  @NoArgsConstructor
+  @AllArgsConstructor
   public static class AddPaymentInformationDto {
 
     @NotNull
@@ -49,6 +55,8 @@ public class PaymentInformationDto {
   @Getter
   @Setter
   @Builder
+  @NoArgsConstructor
+  @AllArgsConstructor
   public static class UpdatePaymentInformationDto {
 
     @NotNull
