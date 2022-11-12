@@ -1,0 +1,97 @@
+== *지불 정보 관리 페이지*
+
+== *지불 정보 등록*
+
+=== 요청
+
+==== Path Parameters
+
+include::{snippets}/payment-info-add/path-parameters.adoc[]
+
+==== Request Body
+
+include::{snippets}/payment-info-add/request-body.adoc[]
+
+==== Request Field
+
+include::{snippets}/payment-info-add/request-fields.adoc[]
+
+=== 응답
+
+==== Response
+
+include::{snippets}/payment-info-add/http-response.adoc[]
+
+==== Response Body
+
+include::{snippets}/payment-info-add/response-body.adoc[]
+
+==== Response Fields
+
+include::{snippets}/payment-info-add/response-fields.adoc[]
+
+== *지불 정보 조회*
+
+=== 요청
+
+==== Path Parameters
+
+include::{snippets}/payment-info-get/path-parameters.adoc[]
+
+=== 응답
+
+==== Response
+
+include::{snippets}/payment-info-get/http-response.adoc[]
+
+==== Response Body
+
+include::{snippets}/payment-info-get/response-body.adoc[]
+
+== *지불 정보 수정*
+
+=== 요청
+
+==== Path Parameters
+
+include::{snippets}/payment-info-update/path-parameters.adoc[]
+
+==== Request Body
+
+include::{snippets}/payment-info-update/request-body.adoc[]
+
+==== Request Field
+
+include::{snippets}/payment-info-update/request-fields.adoc[]
+
+=== 응답
+
+==== Response
+
+include::{snippets}/payment-info-update/http-response.adoc[]
+
+==== Response Body
+
+include::{snippets}/payment-info-update/response-body.adoc[]
+
+==== Response Fields
+
+include::{snippets}/payment-info-update/response-fields.adoc[]
+
+== *지불 정보 삭제*
+
+=== 요청
+
+==== Path Parameters
+
+include::{snippets}/payment-info-delete/path-parameters.adoc[]
+
+=== 응답
+
+==== Response
+
+include::{snippets}/payment-info-delete/http-response.adoc[]
+
+==== Response Body
+
+include::{snippets}/payment-info-delete/response-body.adoc[]
