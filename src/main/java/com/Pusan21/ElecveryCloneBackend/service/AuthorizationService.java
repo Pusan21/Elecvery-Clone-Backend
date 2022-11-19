@@ -24,7 +24,6 @@ import java.util.List;
 @Slf4j
 public class AuthorizationService implements UserDetailsService {
 
-
     private final MemberRepository memberRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
@@ -69,6 +68,10 @@ public class AuthorizationService implements UserDetailsService {
     public List<Member> getMembers() {
         log.info("Fetching users");
         return memberRepository.findAll();
+    }
+
+    public Member getUser(String LoginId){
+        return memberRepository.findByLoginId(LoginId);
     }
 
 }
