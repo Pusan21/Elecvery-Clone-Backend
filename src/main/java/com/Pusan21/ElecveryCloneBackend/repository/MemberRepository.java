@@ -4,5 +4,5 @@ import com.Pusan21.ElecveryCloneBackend.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
-  public Member findByEmail(String email);
+    Member findByLoginId(String loginId);
 }

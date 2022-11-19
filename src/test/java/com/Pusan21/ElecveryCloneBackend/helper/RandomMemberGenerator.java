@@ -29,7 +29,6 @@ public class RandomMemberGenerator {
             password,
             nickname + "@gmail.com",
             nickname,
-            "user",
             createDateTime,
             lastLoginDateTime
         );

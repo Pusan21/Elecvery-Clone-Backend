@@ -1,6 +1,7 @@
 package com.Pusan21.ElecveryCloneBackend.entity;
 
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,15 +11,15 @@ import java.util.List;
 import org.springframework.data.annotation.CreatedDate;
 
 @Entity
-@Getter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Member {
-  public Member(String loginId, String loginPassword, String email, String nickname, String role, ZonedDateTime createDateTime, ZonedDateTime lastLoginDateTime) {
+  public Member(String loginId, String loginPassword, String email, String nickname, ZonedDateTime createDateTime, ZonedDateTime lastLoginDateTime) {
     this.loginId = loginId;
     this.loginPassword = loginPassword;
     this.email = email;
     this.nickname = nickname;
-    this.role = role;
     this.createDateTime = createDateTime;
     this.lastLoginDateTime = lastLoginDateTime;
   }
@@ -26,8 +27,7 @@ public class Member {
   @Column(unique = true)
   @Id
   @GeneratedValue
-  private long memberId;
-
+  private Long memberId;
   private String loginId;
 
   private String loginPassword;
@@ -36,13 +36,12 @@ public class Member {
   private String email;
 
   private String nickname;
-
-  private String role;
-
   @CreatedDate
   private ZonedDateTime createDateTime;
-
   private ZonedDateTime lastLoginDateTime;
+
+  @ManyToMany(fetch = FetchType.EAGER)
+  private List<Role> roles = new ArrayList<>();
 
   @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
   private List<MyCar> myCars = new ArrayList<>();
